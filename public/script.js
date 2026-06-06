@@ -1,25 +1,29 @@
-fetch("/projects")
-.then(response => response.json())
-.then(data => {
+const projects = [
+    {
+        title: "Personal Portfolio",
+        description: "My personal portfolio website",
+        technologies: "HTML, CSS, JavaScript, Node.js, Express, MySQL"
+    },
+    {
+        title: "Weather App",
+        description: "Weather forecast application",
+        technologies: "JavaScript, API"
+    }
+];
 
-    const container = document.getElementById("projects-container");
+const container = document.getElementById("projects-container");
 
-    data.forEach(project => {
+projects.forEach(project => {
 
-        const card = document.createElement("div");
-        card.className = "card";
+    const card = document.createElement("div");
+    card.className = "card";
 
-        card.innerHTML = `
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <p><strong>Technologies:</strong> ${project.technologies}</p>
-        `;
+    card.innerHTML = `
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <p><strong>Technologies:</strong> ${project.technologies}</p>
+    `;
 
-        container.appendChild(card);
+    container.appendChild(card);
 
-    });
-
-})
-.catch(error => {
-    console.log(error);
 });
